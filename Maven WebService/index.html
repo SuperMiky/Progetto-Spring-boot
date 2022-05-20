@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script crossorigin="anonymous|use-credentials"></script>
+    <script>
+        $(document).ready(() => {
+            $("#BtnLogin").click(() => {
+                $.get("http://localhost:8080/getToken.php", {
+                        username: $("#txtUser").val(),
+                        password: $("#txtPassword").val()
+                    },
+                    (data, status) => {
+                            alert("un passo avanti")
+                    },
+                    "json")
+            })
+        })
+    </script>
+</head>
+<body>
+    <label for="username">Username:</label>
+    <input type="text" id="txtUser"></input>
+    <label for="password">Password:</label>
+    <input type="text" id="txtPassword"></input>
+    <button type="button" id="BtnLogin">LOGIN</button>
+    <button type="button" id="BtnSignin">REGISTRATI</button><br>
+    <textarea id="txtArea"></textarea>
+</body>
+</html>
